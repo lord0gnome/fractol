@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 17:26:45 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/11 17:46:11 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 15:02:31 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,19 +210,17 @@ void	modify_image(t_f_data *d)
 	int		index;
 
 	index = 0;
-	if (d->threads)
+	d->threads = d->threads ? d->threads : 1;
+	while (index < d->threads)
 	{
-		while (index < d->threads)
-		{
-			d->tids[index].index = index + 1;
-			d->tids[index].data = (t_f_data *)d;
-			pthread_create(&d->tids[index].thread, NULL, det_frct, (void *)&d->tids[index]);
-			index++;
-		}
-		index = 0;
-		while (index < d->threads)
-			pthread_join((d->tids[index++].thread), NULL);
+		d->tids[index].index = index + 1;
+		d->tids[index].data = (t_f_data *)d;
+		pthread_create(&d->tids[index].thread, NULL, det_frct, (void *)&d->tids[index]);
+		index++;
 	}
+	index = 0;
+	while (index < d->threads)
+		pthread_join((d->tids[index++].thread), NULL);
 	mlx_put_image_to_window(d->init, d->window, d->image, 0 , 0);
 	mlx_string_put(d->init, d->window, 0, 0, 0xffffff, ft_itoa(d->frct->iter));
 	mlx_string_put(d->init, d->window, 0, 24, 0xffffff, ft_itoa(d->woosh));

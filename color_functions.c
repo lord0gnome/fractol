@@ -6,25 +6,25 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 20:08:39 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/11 16:55:50 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 14:04:44 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_color	boring_color(t_color c, int	i, int imax)
+t_color	boring_color(t_color c, int i, int imax)
 {
 	int	b;
 
-	b = i%255;
+	b = i % 255;
 	c.r = b;
 	c.g = b;
 	c.b = b;
 	if (i == imax)
 	{
-	c.r = -b;
-	c.g = -b;
-	c.b = -b;
+		c.r = -b;
+		c.g = -b;
+		c.b = -b;
 	}
 	return (c);
 }
@@ -52,7 +52,7 @@ t_color	invert_colors(t_color c)
 	return (c);
 }
 
-t_color init_color(t_color c)
+t_color	init_color(t_color c)
 {
 	c.r = rand() % 235;
 	c.g = rand() % 235;
@@ -69,11 +69,11 @@ t_color init_color(t_color c)
 t_color	det_color(t_color c, int new, int new2)
 {
 	int i;
-	i = new;
-	i %= c.imax;
+
+	i = new % c.imax;
 	if (c.rb + i > 255)
 		c.rup = 0;
-	else if (c.rb - i  <= 0)
+	else if (c.rb - i <= 0)
 		c.rup = 1;
 	if (c.gb + i > 255)
 		c.gup = 0;
@@ -83,19 +83,9 @@ t_color	det_color(t_color c, int new, int new2)
 		c.bup = 0;
 	else if (c.bb - i <= 0)
 		c.bup = 1;
-
-//	if (c.rup == 1)
-		c.r = c.rb + i * c.ntense;
-//	else
-//		c.r = c.rb - i * c.ntense;
-//	if (c.gup == 1)
-		c.g = c.gb + i * c.ntense;
-//	else
-//		c.g = c.gb - i * c.ntense;
-//	if (c.bup == 1)
-		c.b = c.bb + i * c.ntense;
-//	else
-//		c.b = c.bb - i * c.ntense;
+	c.r = c.rb + i * c.ntense;
+	c.g = c.gb + i * c.ntense;
+	c.b = c.bb + i * c.ntense;
 	if (new == new2)
 	{
 		c.b = -c.b;
@@ -104,5 +94,3 @@ t_color	det_color(t_color c, int new, int new2)
 	}
 	return (c);
 }
-
-

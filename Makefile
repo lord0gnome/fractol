@@ -6,13 +6,13 @@
 #    By: guiricha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 16:55:06 by guiricha          #+#    #+#              #
-#    Updated: 2016/06/11 16:06:13 by guiricha         ###   ########.fr        #
+#    Updated: 2016/06/15 15:06:28 by guiricha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_NAME = main.c init_funcs.c print_options.c parse_arguments.c \
 		   do_fractals.c key_press.c fractals.c ft_putpixel.c \
-		   color_functions.c
+		   color_functions.c fractal_init.c
 NAME = fractol
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Ofast -pthread

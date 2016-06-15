@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 13:47:45 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/11 17:46:16 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 15:02:45 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,13 +173,13 @@ int	mouse_click(int button, int x, int y, t_f_data *data)
 		data->frct->xoff -= (x - (data->ww / 2)) / data->frct->zoomx;
 		data->frct->yoff -= (y - (data->wh / 2)) / data->frct->zoomy;
 	}
-		if (!data->lock)
-		{
-			data->frct->zoomxlock = data->frct->zoomx;
-			data->frct->zoomylock = data->frct->zoomy;
-			data->frct->yofflock = data->frct->yoff;
-			data->frct->xofflock = data->frct->xoff;
-		}
+	if (!data->lock)
+	{
+		data->frct->zoomxlock = data->frct->zoomx;
+		data->frct->zoomylock = data->frct->zoomy;
+		data->frct->yofflock = data->frct->yoff;
+		data->frct->xofflock = data->frct->xoff;
+	}
 	modify_image(data);
 	return (1);
 }

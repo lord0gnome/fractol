@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:41 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/11 17:46:07 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 14:47:30 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct		s_f_data
 	char			*name;
 	char			*errname;
 	char			**validnames;
-	int				validnamesi;
+	int				vnindex;
 	int				currindex;
 	int				i;
 	int				i2;
@@ -80,10 +80,8 @@ typedef struct		s_f_data
 	int				my;
 	int				mxj;
 	int				myj;
-	float			drawrate;
 	struct s_f		*frct;
 	struct s_tids	tids[16];
-	size_t			zoomlevel;
 }					t_f_data;
 
 typedef struct		s_f
@@ -120,6 +118,7 @@ t_f					*init_f(void);
 t_f_data			*init_data();
 t_f					init_mandelbrot(t_f f, t_f_data *d);
 t_f					init_julia(t_f f, t_f_data *d);
+t_f					init_newton(t_f f, t_f_data *d);
 int					randomize_colors(t_f_data *d);
 t_color				boring_color(t_color c, int i, int imax);
 t_color				set_color_ntense(int n, t_color c);
