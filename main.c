@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:29 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/11 15:32:30 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 17:25:13 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	d = init_data();
 	parse_arguments(d, argc, argv);
-	if (d->errno)
+	if (d->errno || (d->help))
 		print_options(d);
 	srand(time(NULL));
 	f = init_f();

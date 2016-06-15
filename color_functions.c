@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 20:08:39 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 14:04:44 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 16:57:02 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_color	boring_color(t_color c, int i, int imax)
 	c.b = b;
 	if (i == imax)
 	{
-		c.r = -b;
-		c.g = -b;
-		c.b = -b;
+		c.r = 128;
+		c.g = 128;
+		c.b = 128;
 	}
 	return (c);
 }
@@ -88,9 +88,9 @@ t_color	det_color(t_color c, int new, int new2)
 	c.b = c.bb + i * c.ntense;
 	if (new == new2)
 	{
-		c.b = -c.b;
-		c.r = -c.r;
-		c.g = -c.g;
+		c.r = c.r == 0  || c.r == 255 ? 125 : -c.r;
+		c.g = c.g == 0  || c.g == 255 ? 125 : -c.g;
+		c.b = c.b == 0  || c.b == 255 ? 125 : -c.b;
 	}
 	return (c);
 }

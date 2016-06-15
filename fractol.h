@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:41 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 14:47:30 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/15 16:29:01 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void				*burning(void *data);
 void				print_options(t_f_data *data);
 int					parse_arguments(t_f_data *data, int argc, char **argv);
 int					add_fractol_to_list(t_f_data *data, char *arg);
-int					key_press(int keycode, t_f_data *data);
+int					key_press(int keycode, t_f_data *d);
 int					mouse_pos(int x, int y, t_f_data *d);
 int					mouse_click(int button, int x, int y, t_f_data *d);
 void				ft_putpixel(int x, int y, int c, t_f_data *d);
