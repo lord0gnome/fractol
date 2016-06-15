@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:29 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/09 22:16:25 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/11 15:32:30 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int argc, char **argv)
 	f = init_f();
 	d->frct = f;
 	f->color = init_color(f->color);
-	f->color.imax = 1;
+	f->color.imax = 3;
+	f->color.ntense = 3;
 	d->init = mlx_init();
 	d->window = mlx_new_window(d->init, d->ww, d->wh - 8, d->name);
 	d->image = mlx_new_image(d->init, d->ww, d->wh);

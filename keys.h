@@ -6,7 +6,7 @@
 /*   By: scebula <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 16:35:20 by scebula           #+#    #+#             */
-/*   Updated: 2016/06/09 22:19:19 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/10 18:53:28 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@
 # define KEY_DOT 47
 # define KEY_SLASH 44
 # define KEY_SEMICOLON 41
-# define MOUSE_WHEEL_BOTTOM 5
+# define MOUSE_WHEEL_DOWN 5
 # define MOUSE_WHEEL_UP 4
 # define KEY_APO 3
 #endif

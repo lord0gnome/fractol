@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:56:09 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/05 18:56:32 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/10 18:46:39 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_options(t_f_data *data)
 	else if (data->errno == 3)
 	{
 		ft_putstr("Invalid fractal supplied on argument \"");
-		ft_putstr(data->name);
+		ft_putstr(data->errname);
 		ft_putstr("\" Correct format below.\n");
 	}
 	else if (data->errno == 4)
@@ -32,6 +32,8 @@ void	print_options(t_f_data *data)
 	}
 	else if (data->errno == 6)
 		ft_putstr("Too many or too few threads. pick a number between 1 and 9\n");
+	else if (data->errno == 9)
+		ft_putstr("No fractal supplied\n");
 	if (data->errno != 5 && data->errno != 0 && data->errno != -1)
 		ft_putstr("USAGE	./fractol julia/mandelbrot\n");
 	if (data->errno == 2 || data->errno == 5 || data->errno == 3)

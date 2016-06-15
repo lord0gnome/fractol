@@ -6,87 +6,89 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 14:24:58 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/07 20:02:18 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/10 18:10:20 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	parse_params(t_f_data *data, char *str)
+int	parse_params(t_f_data *d, char *str)
 {
-	data->i2 = 0;
-	while (str[data->i2])
+	d->i2 = 0;
+	while (str[d->i2])
 	{
-		ft_putchar(str[data->i2]);
-		if (str[data->i2] == '-')
-			data->i2++;
-		if (str[data->i2] == 'h')
-			data->help = 1;
-		else if (str[data->i2] == 'r')
+		if (str[d->i2] == '-')
+			d->i2++;
+		if (str[d->i2] == 'h')
+			d->help = 1;
+		else if (str[d->i2] == 'r')
 		{
-			data->i2++;
-			data->ww = ft_atoi(str + data->i2);	
-			data->i2 += ft_nbrlen(data->ww);
-			if (str[data->i2] == 'x' || str[data->i2] == '*')
+			d->i2++;
+			d->ww = ft_atoi(str + d->i2);	
+			d->i2 += ft_nbrlen(d->ww);
+			if (str[d->i2] == 'x' || str[d->i2] == '*')
 			{
-			data->i2++;
-			data->wh = ft_atoi(str + data->i2);
-			data->i2 += ft_nbrlen(data->wh) - 1;
+			d->i2++;
+			d->wh = ft_atoi(str + d->i2);
+			d->i2 += ft_nbrlen(d->wh) - 1;
 			}
 			else
 			{
-				data->errno = 8;
+				d->errno = 8;
 				return (0);
 			}
-			data->mxj = data->ww/2;
-			data->myj = data->wh/2;
+			d->mxj = d->ww/2;
+			d->myj = d->wh/2;
 		}
-		else if (str[data->i2] == 't' && str[data->i2 + 1] && ft_isdigit(str[data->i2 + 1]))
+		else if (str[d->i2] == 't' && str[d->i2 + 1] &&
+				ft_isdigit(str[d->i2 + 1]))
 		{
-			data->threads = ft_atoi(str + data->i2 + 1);
-			if (data->threads > 9 || data->threads < 1)
+			d->threads = ft_atoi(str + d->i2 + 1);
+			if (d->threads > 16 || d->threads < 1)
 			{
-				data->errno = 6;
+				d->errno = 6;
 				return (0);
 			}
-			data->i2++;
+			d->i2 += ft_nbrlen(d->threads);
 		}
 		else
 		{
-			data->errchar = str[data->i2];
-			data->errno = 5;
+			d->errchar = str[d->i2];
+			d->errno = 5;
 			return (0);
 		}
-		data->i2++;
+		d->i2++;
 	}
 	return (1);
 }
 
-int	parse_arguments(t_f_data *data, int argc, char **argv)
+int	parse_arguments(t_f_data *d, int argc, char **argv)
 {
-	data->i = 1;
+	d->i = 1;
 	if (argc <= 1)
 	{
-		data->errno = 2;
+		d->errno = 2;
 		return (-1);
 	}
 	else
-		while(data->i < argc)
+		while(d->i < argc)
 		{
-			if (argv[data->i][0] == '-')
+			if (argv[d->i][0] == '-')
 			{
-				if (!(parse_params(data, argv[data->i])))
+				if (!(parse_params(d, argv[d->i])))
 				{
-					data->errno = !data->errno ? 5 : data->errno;
+					d->errno = !d->errno ? 5 : d->errno;
 					return (-1);
 				}
 			}
-			else if (!(add_fractol_to_list(data, argv[data->i])))
+			else if (!(add_fractol_to_list(d, argv[d->i])))
 			{
-				data->errno = 3;
+				d->errno = 3;
 				return (-1);
 			}
-			data->i++;
+			d->i++;
 		}
+	if (d->name == NULL)
+		d->errno = 9;
 	return (1);
 }
