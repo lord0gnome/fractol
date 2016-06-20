@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:49:19 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 15:07:24 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/20 16:53:32 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ t_f_data	*init_data(void)
 	data->name = NULL;
 	data->crazy = 1;
 	data->woosh = 0;
-	if (!(data->validnames = (char **)malloc(sizeof(char *) * 3)))
+	data->wl = 1;
+	if (!(data->validnames = (char **)malloc(sizeof(char *) * 5)))
 		return (NULL);
 	data->validnames[0] = ft_strnew(10);
 	ft_strcpy(data->validnames[0], "mandelbrot");
@@ -58,6 +59,10 @@ t_f_data	*init_data(void)
 	ft_strcpy(data->validnames[1], "julia");
 	data->validnames[2] = ft_strnew(11);
 	ft_strcpy(data->validnames[2], "burningship");
+	data->validnames[3] = ft_strnew(5);
+	ft_strcpy(data->validnames[3], "gnome");
+	data->validnames[4] = ft_strnew(5);
+	ft_strcpy(data->validnames[4], "moore");
 	data->currindex = 0;
 	return (data);
 }
@@ -99,7 +104,7 @@ int			add_fractol_to_list(t_f_data *data, char *arg)
 		data->i++;
 	}
 	data->vnindex = 0;
-	while (data->validnames[data->vnindex] && data->vnindex < 3)
+	while (data->validnames[data->vnindex] && data->vnindex < 6)
 	{
 		if (!ft_strcmp(data->validnames[data->vnindex], arg))
 		{

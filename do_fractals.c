@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 13:36:28 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 14:01:54 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/20 12:45:57 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		randomize_colors(t_f_data *d)
 {
 	if (d->woosh)
 	{
-		if (d->frct->color.ntense > 30)
+		if (d->frct->color.ntense > 25)
 			d->frct->color.ntup = 0;
 		else if (d->frct->color.ntense <= 2)
 			d->frct->color.ntup = 1;

@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:29 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 17:25:13 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/20 14:37:54 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	f->color.imax = 3;
 	f->color.ntense = 3;
 	d->init = mlx_init();
-	d->window = mlx_new_window(d->init, d->ww, d->wh - 8, d->name);
+	d->window = mlx_new_window(d->init, d->ww, d->wh - d->threads, "fractol");
 	d->image = mlx_new_image(d->init, d->ww, d->wh);
 	d->istr = mlx_get_data_addr(d->image, &d->bpp, &d->sl, &d->endi);
 	do_fractals(d);

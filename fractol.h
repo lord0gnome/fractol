@@ -6,13 +6,12 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:41 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/15 16:29:01 by guiricha         ###   ########.fr       */
+/*   Updated: 2016/06/20 16:53:38 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# include "printf/ft_printf.h"
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
 # include "minilibx_macos/X.h"
@@ -21,6 +20,8 @@
 # include <math.h>
 # include <pthread.h>
 # include <time.h>
+# define WHITE 0xffffff
+# define BLACK 0
 
 typedef struct		s_tids
 {
@@ -60,6 +61,7 @@ typedef struct		s_f_data
 	char			crazy;
 	char			togup;
 	char			lock;
+	char			wl;
 	char			help;
 	char			errchar;
 	char			*name;
@@ -118,7 +120,8 @@ t_f					*init_f(void);
 t_f_data			*init_data();
 t_f					init_mandelbrot(t_f f, t_f_data *d);
 t_f					init_julia(t_f f, t_f_data *d);
-t_f					init_newton(t_f f, t_f_data *d);
+t_f					init_gnome(t_f f, t_f_data *d);
+t_f					init_moore(t_f f, t_f_data *d);
 int					randomize_colors(t_f_data *d);
 t_color				boring_color(t_color c, int i, int imax);
 t_color				set_color_ntense(int n, t_color c);
@@ -128,9 +131,15 @@ t_color				det_color(t_color c, int new, int new2);
 void				*mandelbrot(void *data);
 void				*julia(void *data);
 void				*burning(void *data);
+void				*gnome(void *data);
+void				*moore(void *data);
 void				print_options(t_f_data *data);
 int					parse_arguments(t_f_data *data, int argc, char **argv);
 int					add_fractol_to_list(t_f_data *data, char *arg);
+int					key_press_ext5(int keycode, t_f_data *d);
+int					key_press_ext4(int keycode, t_f_data *d);
+int					key_press_ext3(int keycode, t_f_data *d);
+int					key_press_ext2(int keycode, t_f_data *d);
 int					key_press(int keycode, t_f_data *d);
 int					mouse_pos(int x, int y, t_f_data *d);
 int					mouse_click(int button, int x, int y, t_f_data *d);
