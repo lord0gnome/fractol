@@ -6,7 +6,7 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:49:19 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/20 16:53:32 by guiricha         ###   ########.fr       */
+/*   Updated: 2017/01/15 14:49:12 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int			add_fractol_to_list(t_f_data *data, char *arg)
 		data->i++;
 	}
 	data->vnindex = 0;
-	while (data->validnames[data->vnindex] && data->vnindex < 6)
+	while (data->validnames[data->vnindex] && data->vnindex < 5)
 	{
 		if (!ft_strcmp(data->validnames[data->vnindex], arg))
 		{
