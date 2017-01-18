@@ -6,15 +6,15 @@
 /*   By: guiricha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:45:41 by guiricha          #+#    #+#             */
-/*   Updated: 2016/06/20 16:53:38 by guiricha         ###   ########.fr       */
+/*   Updated: 2017/01/18 13:35:00 by guiricha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# include "libft/libft.h"
-# include "minilibx_macos/mlx.h"
-# include "minilibx_macos/X.h"
+# include "libft.h"
+# include "mlx.h"
+# include "X.h"
 # include "keys.h"
 # include <stdlib.h>
 # include <math.h>
